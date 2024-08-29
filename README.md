@@ -22,9 +22,6 @@ npm run dev
 ## Generar build para produccion
 npm run build
 
-## Credenciales default
-email: test@hotmail.com
-password: Abcd$1230
 
 
 
