@@ -24,23 +24,32 @@ function reducer (state: State, action: Action){
   }
 
   if(type === 'SET_FROM_LANGUAGE'){
+    if(state.fromLanguage === action.payload) return state
+    const loading = state.fromText !== ''
     return{
       ...state,
-      fromLanguage: action.payload
+      fromLanguage: action.payload,
+      result: '',
+      loading
     }
   }
 
   if(type === 'SET_TO_LANGUAGE'){
+    if(state.toLanguage === action.payload) return state
+    const loading = state.fromText !== ''
     return{
       ...state,
-      toLanguage: action.payload
+      toLanguage: action.payload,
+      result: '',
+      loading
     }
   }
 
   if(type === 'SET_FROM_TEXT'){
+    const loading = action.payload !== ''
     return{
       ...state,
-      loading: true,
+      loading,
       fromText: action.payload,
       result: ''
     }
@@ -72,9 +81,9 @@ export function useStore () {
 
     const setToLanguage = (payload: Language) => dispatch({type: 'SET_TO_LANGUAGE', payload})
 
-    const setFromText = (payload: Language) => dispatch({type: 'SET_FROM_TEXT', payload})
+    const setFromText = (payload: string) => dispatch({type: 'SET_FROM_TEXT', payload})
 
-    const setResult = (payload: Language) => dispatch({type: 'SET_RESULT', payload})
+    const setResult = (payload: string) => dispatch({type: 'SET_RESULT', payload})
 
     return{
         fromLanguage,        
