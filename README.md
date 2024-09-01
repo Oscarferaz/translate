@@ -11,7 +11,7 @@ para funcionar se debe crear un archivo .env y tener una api key de openAI
 
 Para clonar el repositorio, ejecuta el siguiente comando:
 
-git clone https://github.com/Oscarferaz/oscar-osorio-react-test.git
+git clone https://github.com/Oscarferaz/translate.git
 
 ## Instalar dependencias
 npm install
